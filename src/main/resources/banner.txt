@@ -1,0 +1,11 @@
+ ${AnsiColor.GREEN} __/\\\\\\\\\\\\\\\_        ${AnsiColor.RED}__/\\\\\\\\\\\_        ${AnsiColor.BLUE}__/\\\\\\\\\\\\\\\_        ${AnsiColor.WHITE}_____/\\\\\\\\\\\___
+ ${AnsiColor.GREEN}  _\/\\\///////////__       ${AnsiColor.RED} _\/////\\\///__       ${AnsiColor.BLUE} _\///////\\\/////__       ${AnsiColor.WHITE} ___/\\\/////////\\\_
+ ${AnsiColor.GREEN}   _\/\\\_____________      ${AnsiColor.RED}  _____\/\\\_____      ${AnsiColor.BLUE}  _______\/\\\_______      ${AnsiColor.WHITE}  __\//\\\______\///__
+ ${AnsiColor.GREEN}    _\/\\\\\\\\\\\_____     ${AnsiColor.RED}   _____\/\\\_____     ${AnsiColor.BLUE}   _______\/\\\_______     ${AnsiColor.WHITE}   ___\////\\\_________
+ ${AnsiColor.GREEN}     _\/\\\///////______    ${AnsiColor.RED}    _____\/\\\_____    ${AnsiColor.BLUE}    _______\/\\\_______    ${AnsiColor.WHITE}    ______\////\\\______
+ ${AnsiColor.GREEN}      _\/\\\_____________   ${AnsiColor.RED}     _____\/\\\_____   ${AnsiColor.BLUE}     _______\/\\\_______   ${AnsiColor.WHITE}     _________\////\\\___
+ ${AnsiColor.GREEN}       _\/\\\_____________  ${AnsiColor.RED}      _____\/\\\_____  ${AnsiColor.BLUE}      _______\/\\\_______  ${AnsiColor.WHITE}      __/\\\______\//\\\__
+ ${AnsiColor.GREEN}        _\/\\\_____________ ${AnsiColor.RED}       __/\\\\\\\\\\\_ ${AnsiColor.BLUE}       _______\/\\\_______ ${AnsiColor.WHITE}       _\///\\\\\\\\\\\/___
+ ${AnsiColor.GREEN}         _\///______________${AnsiColor.RED}        _\///////////__${AnsiColor.BLUE}        _______\///________${AnsiColor.WHITE}        ___\///////////_____
+
+${AnsiColor.BRIGHT_BLUE}:: Fits Solutions 🤓  :: Running Spring Boot ${spring-boot.version} ::${AnsiColor.DEFAULT}

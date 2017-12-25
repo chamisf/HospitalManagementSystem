@@ -1,0 +1,16 @@
+{
+  "name": "HospitalManagemetSystem",
+  "short_name": "HospitalManagemetSystem",
+  "icons": [
+      {
+          "src": "./content/images/logo-hospital.png",
+          "sizes": "128x128",
+          "type": "image/png"
+      }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#e0e0e0",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait"
+}
