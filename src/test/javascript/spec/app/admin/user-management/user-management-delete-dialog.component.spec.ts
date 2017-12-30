@@ -3,7 +3,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs/Rx';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { HospitalManagemetSystemTestModule } from '../../../test.module';
+import { HospitalManagementSystemTestModule } from '../../../test.module';
 import { UserMgmtDeleteDialogComponent } from '../../../../../../main/webapp/app/admin/user-management/user-management-delete-dialog.component';
 import { UserService } from '../../../../../../main/webapp/app/shared';
 
@@ -18,7 +18,7 @@ describe('Component Tests', () => {
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
-                imports: [HospitalManagemetSystemTestModule],
+                imports: [HospitalManagementSystemTestModule],
                 declarations: [UserMgmtDeleteDialogComponent],
                 providers: [
                     UserService

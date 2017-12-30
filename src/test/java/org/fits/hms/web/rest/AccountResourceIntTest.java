@@ -1,7 +1,7 @@
 package org.fits.hms.web.rest;
 
 import org.fits.hms.config.Constants;
-import org.fits.hms.HospitalManagemetSystemApp;
+import org.fits.hms.HospitalManagementSystemApp;
 import org.fits.hms.domain.Authority;
 import org.fits.hms.domain.User;
 import org.fits.hms.repository.AuthorityRepository;
@@ -49,7 +49,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see AccountResource
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = HospitalManagemetSystemApp.class)
+@SpringBootTest(classes = HospitalManagementSystemApp.class)
 public class AccountResourceIntTest {
 
     @Autowired

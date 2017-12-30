@@ -1,6 +1,6 @@
 {
-  "name": "HospitalManagemetSystem",
-  "short_name": "HospitalManagemetSystem",
+  "name": "HospitalManagementSystem",
+  "short_name": "HospitalManagementSystem",
   "icons": [
       {
           "src": "./content/images/logo-hospital.png",

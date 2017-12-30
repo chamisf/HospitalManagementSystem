@@ -24,4 +24,4 @@ import { CookieModule } from 'ngx-cookie';
         InfiniteScrollModule
     ]
 })
-export class HospitalManagemetSystemSharedLibsModule {}
+export class HospitalManagementSystemSharedLibsModule {}

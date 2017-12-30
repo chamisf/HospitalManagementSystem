@@ -1,4 +1,4 @@
-# HospitalManagemetSystem
+# HospitalManagementSystem
 This application was generated using JHipster 4.12.0, you can find documentation and help at [http://www.jhipster.tech/documentation-archive/v4.12.0](http://www.jhipster.tech/documentation-archive/v4.12.0).
 
 ## Development
@@ -87,7 +87,7 @@ will generate few files:
 
 ## Building for production
 
-To optimize the HospitalManagemetSystem application for production, run:
+To optimize the HospitalManagementSystem application for production, run:
 
     ./mvnw -Pprod clean package
 

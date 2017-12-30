@@ -4,7 +4,7 @@
       "packageName": "org.fits.hms"
     },
     "jhipsterVersion": "4.12.0",
-    "baseName": "HospitalManagemetSystem",
+    "baseName": "HospitalManagementSystem",
     "packageName": "org.fits.hms",
     "packageFolder": "org/fits/hms",
     "serverPort": "8080",

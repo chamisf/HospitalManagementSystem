@@ -15,4 +15,4 @@ const LAYOUT_ROUTES = [
         RouterModule
     ]
 })
-export class HospitalManagemetSystemAppRoutingModule {}
+export class HospitalManagementSystemAppRoutingModule {}

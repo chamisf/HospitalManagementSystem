@@ -1,6 +1,6 @@
 package org.fits.hms.repository;
 
-import org.fits.hms.HospitalManagemetSystemApp;
+import org.fits.hms.HospitalManagementSystemApp;
 import org.fits.hms.config.Constants;
 import org.fits.hms.config.audit.AuditEventConverter;
 import org.fits.hms.domain.PersistentAuditEvent;
@@ -32,7 +32,7 @@ import static org.fits.hms.repository.CustomAuditEventRepository.EVENT_DATA_COLU
  * @see CustomAuditEventRepository
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = HospitalManagemetSystemApp.class)
+@SpringBootTest(classes = HospitalManagementSystemApp.class)
 @Transactional
 public class CustomAuditEventRepositoryIntTest {
 

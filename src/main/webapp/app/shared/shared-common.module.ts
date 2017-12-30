@@ -2,14 +2,14 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import {
-    HospitalManagemetSystemSharedLibsModule,
+    HospitalManagementSystemSharedLibsModule,
     JhiAlertComponent,
     JhiAlertErrorComponent
 } from './';
 
 @NgModule({
     imports: [
-        HospitalManagemetSystemSharedLibsModule
+        HospitalManagementSystemSharedLibsModule
     ],
     declarations: [
         JhiAlertComponent,
@@ -23,9 +23,9 @@ import {
         },
     ],
     exports: [
-        HospitalManagemetSystemSharedLibsModule,
+        HospitalManagementSystemSharedLibsModule,
         JhiAlertComponent,
         JhiAlertErrorComponent
     ]
 })
-export class HospitalManagemetSystemSharedCommonModule {}
+export class HospitalManagementSystemSharedCommonModule {}

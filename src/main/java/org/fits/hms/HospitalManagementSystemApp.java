@@ -24,18 +24,18 @@ import java.util.Collection;
 @ComponentScan
 @EnableAutoConfiguration(exclude = {MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class})
 @EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
-public class HospitalManagemetSystemApp {
+public class HospitalManagementSystemApp {
 
-    private static final Logger log = LoggerFactory.getLogger(HospitalManagemetSystemApp.class);
+    private static final Logger log = LoggerFactory.getLogger(HospitalManagementSystemApp.class);
 
     private final Environment env;
 
-    public HospitalManagemetSystemApp(Environment env) {
+    public HospitalManagementSystemApp(Environment env) {
         this.env = env;
     }
 
     /**
-     * Initializes HospitalManagemetSystem.
+     * Initializes HospitalManagementSystem.
      * <p>
      * Spring profiles can be configured with a program arguments --spring.profiles.active=your-active-profile
      * <p>
@@ -61,7 +61,7 @@ public class HospitalManagemetSystemApp {
      * @throws UnknownHostException if the local host name could not be resolved into an address
      */
     public static void main(String[] args) throws UnknownHostException {
-        SpringApplication app = new SpringApplication(HospitalManagemetSystemApp.class);
+        SpringApplication app = new SpringApplication(HospitalManagementSystemApp.class);
         DefaultProfileUtil.addDefaultProfile(app);
         Environment env = app.run(args).getEnvironment();
         String protocol = "http";

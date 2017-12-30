@@ -1,7 +1,7 @@
 {
-  "name": "hospital-managemet-system",
+  "name": "hospital-management-system",
   "version": "0.0.0",
-  "description": "Description for HospitalManagemetSystem",
+  "description": "Description for HospitalManagementSystem",
   "private": true,
   "license": "UNLICENSED",
   "cacheDirectories": [

@@ -4,12 +4,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Ng2Webstorage } from 'ngx-webstorage';
 
-import { HospitalManagemetSystemSharedModule, UserRouteAccessService } from './shared';
-import { HospitalManagemetSystemAppRoutingModule} from './app-routing.module';
-import { HospitalManagemetSystemHomeModule } from './home/home.module';
-import { HospitalManagemetSystemAdminModule } from './admin/admin.module';
-import { HospitalManagemetSystemAccountModule } from './account/account.module';
-import { HospitalManagemetSystemEntityModule } from './entities/entity.module';
+import { HospitalManagementSystemSharedModule, UserRouteAccessService } from './shared';
+import { HospitalManagementSystemAppRoutingModule} from './app-routing.module';
+import { HospitalManagementSystemHomeModule } from './home/home.module';
+import { HospitalManagementSystemAdminModule } from './admin/admin.module';
+import { HospitalManagementSystemAccountModule } from './account/account.module';
+import { HospitalManagementSystemEntityModule } from './entities/entity.module';
 import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
 
@@ -25,13 +25,13 @@ import {
 @NgModule({
     imports: [
         BrowserModule,
-        HospitalManagemetSystemAppRoutingModule,
+        HospitalManagementSystemAppRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-'}),
-        HospitalManagemetSystemSharedModule,
-        HospitalManagemetSystemHomeModule,
-        HospitalManagemetSystemAdminModule,
-        HospitalManagemetSystemAccountModule,
-        HospitalManagemetSystemEntityModule,
+        HospitalManagementSystemSharedModule,
+        HospitalManagementSystemHomeModule,
+        HospitalManagementSystemAdminModule,
+        HospitalManagementSystemAccountModule,
+        HospitalManagementSystemEntityModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
@@ -47,4 +47,4 @@ import {
     ],
     bootstrap: [ JhiMainComponent ]
 })
-export class HospitalManagemetSystemAppModule {}
+export class HospitalManagementSystemAppModule {}

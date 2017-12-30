@@ -1,6 +1,6 @@
 package org.fits.hms.web.rest;
 
-import org.fits.hms.HospitalManagemetSystemApp;
+import org.fits.hms.HospitalManagementSystemApp;
 import org.fits.hms.domain.User;
 import org.fits.hms.repository.UserRepository;
 import org.fits.hms.security.jwt.TokenProvider;
@@ -32,7 +32,7 @@ import static org.hamcrest.Matchers.not;
  * @see UserJWTController
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = HospitalManagemetSystemApp.class)
+@SpringBootTest(classes = HospitalManagementSystemApp.class)
 public class UserJWTControllerIntTest {
 
     @Autowired

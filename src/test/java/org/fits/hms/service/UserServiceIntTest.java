@@ -1,6 +1,6 @@
 package org.fits.hms.service;
 
-import org.fits.hms.HospitalManagemetSystemApp;
+import org.fits.hms.HospitalManagementSystemApp;
 import org.fits.hms.config.Constants;
 import org.fits.hms.domain.User;
 import org.fits.hms.repository.UserRepository;
@@ -31,7 +31,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @see UserService
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = HospitalManagemetSystemApp.class)
+@SpringBootTest(classes = HospitalManagementSystemApp.class)
 @Transactional
 public class UserServiceIntTest {
 

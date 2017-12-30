@@ -1,6 +1,6 @@
 package org.fits.hms.web.rest;
 
-import org.fits.hms.HospitalManagemetSystemApp;
+import org.fits.hms.HospitalManagementSystemApp;
 import org.fits.hms.config.audit.AuditEventConverter;
 import org.fits.hms.domain.PersistentAuditEvent;
 import org.fits.hms.repository.PersistenceAuditEventRepository;
@@ -33,7 +33,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see AuditResource
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = HospitalManagemetSystemApp.class)
+@SpringBootTest(classes = HospitalManagementSystemApp.class)
 @Transactional
 public class AuditResourceIntTest {
 

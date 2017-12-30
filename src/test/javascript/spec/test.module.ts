@@ -74,4 +74,4 @@ import { MockEventManager } from './helpers/mock-event-manager.service';
         }
     ]
 })
-export class HospitalManagemetSystemTestModule {}
+export class HospitalManagementSystemTestModule {}
