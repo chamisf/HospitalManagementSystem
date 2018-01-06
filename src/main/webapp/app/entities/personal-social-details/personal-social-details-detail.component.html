@@ -1,0 +1,70 @@
+
+<div *ngIf="personalSocialDetails">
+    <h2><span>Personal Social Details</span> {{personalSocialDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Education</span></dt>
+        <dd>
+            <span>{{personalSocialDetails.education}}</span>
+        </dd>
+        <dt><span>Employment</span></dt>
+        <dd>
+            <span>{{personalSocialDetails.employment}}</span>
+        </dd>
+        <dt><span>Assistance At Home</span></dt>
+        <dd>
+            <span>{{personalSocialDetails.assistanceAtHome}}</span>
+        </dd>
+        <dt><span>Patient</span></dt>
+        <dd>
+            <div *ngIf="personalSocialDetails.patient">
+                <a [routerLink]="['/patient', personalSocialDetails.patient?.id]">{{personalSocialDetails.patient?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Sleep Type</span></dt>
+        <dd>
+            <div *ngIf="personalSocialDetails.sleepType">
+                <a [routerLink]="['/sleep-types', personalSocialDetails.sleepType?.id]">{{personalSocialDetails.sleepType?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Appetite Type</span></dt>
+        <dd>
+            <div *ngIf="personalSocialDetails.appetiteType">
+                <a [routerLink]="['/appetite-types', personalSocialDetails.appetiteType?.id]">{{personalSocialDetails.appetiteType?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Micturition Type</span></dt>
+        <dd>
+            <div *ngIf="personalSocialDetails.micturitionType">
+                <a [routerLink]="['/micturition-types', personalSocialDetails.micturitionType?.id]">{{personalSocialDetails.micturitionType?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Bowel Habit</span></dt>
+        <dd>
+            <div *ngIf="personalSocialDetails.bowelHabit">
+                <a [routerLink]="['/bowel-habits', personalSocialDetails.bowelHabit?.id]">{{personalSocialDetails.bowelHabit?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Addiction</span></dt>
+        <dd>
+            <div *ngIf="personalSocialDetails.addiction">
+                <a [routerLink]="['/addictions', personalSocialDetails.addiction?.id]">{{personalSocialDetails.addiction?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'personal-social-details/'+ personalSocialDetails.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,40 @@
+
+<div *ngIf="gynaecologicalHistory">
+    <h2><span>Gynaecological History</span> {{gynaecologicalHistory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Age Of Menarche</span></dt>
+        <dd>
+            <span>{{gynaecologicalHistory.ageOfMenarche}}</span>
+        </dd>
+        <dt><span>Last Menstrual Period</span></dt>
+        <dd>
+            <span>{{gynaecologicalHistory.lastMenstrualPeriod}}</span>
+        </dd>
+        <dt><span>Regularity Of Cycle</span></dt>
+        <dd>
+            <span>{{gynaecologicalHistory.regularityOfCycle}}</span>
+        </dd>
+        <dt><span>Patient</span></dt>
+        <dd>
+            <div *ngIf="gynaecologicalHistory.patient">
+                <a [routerLink]="['/patient', gynaecologicalHistory.patient?.id]">{{gynaecologicalHistory.patient?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'gynaecological-history/'+ gynaecologicalHistory.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

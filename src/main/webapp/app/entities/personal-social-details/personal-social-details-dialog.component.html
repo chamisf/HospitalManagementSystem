@@ -1,0 +1,88 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myPersonalSocialDetailsLabel">Create or edit a Personal Social Details</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!personalSocialDetails.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="personalSocialDetails.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_education">Education</label>
+            <input type="text" class="form-control" name="education" id="field_education"
+                [(ngModel)]="personalSocialDetails.education" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_employment">Employment</label>
+            <input type="text" class="form-control" name="employment" id="field_employment"
+                [(ngModel)]="personalSocialDetails.employment" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_assistanceAtHome">Assistance At Home</label>
+            <input type="text" class="form-control" name="assistanceAtHome" id="field_assistanceAtHome"
+                [(ngModel)]="personalSocialDetails.assistanceAtHome" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_patient">Patient</label>
+            <select class="form-control" id="field_patient" name="patient" [(ngModel)]="personalSocialDetails.patient" required>
+                <option *ngIf="!editForm.value.patient" [ngValue]="null" selected></option>
+                <option [ngValue]="patientOption.id === personalSocialDetails.patient?.id ? personalSocialDetails.patient : patientOption" *ngFor="let patientOption of patients; trackBy: trackPatientById">{{patientOption.id}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.patient?.dirty && editForm.controls.patient?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.patient?.errors?.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_sleepType">Sleep Type</label>
+            <select class="form-control" id="field_sleepType" name="sleepType" [(ngModel)]="personalSocialDetails.sleepType">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="sleepTypesOption.id === personalSocialDetails.sleepType?.id ? personalSocialDetails.sleepType : sleepTypesOption" *ngFor="let sleepTypesOption of sleeptypes; trackBy: trackSleepTypesById">{{sleepTypesOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_appetiteType">Appetite Type</label>
+            <select class="form-control" id="field_appetiteType" name="appetiteType" [(ngModel)]="personalSocialDetails.appetiteType">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="appetiteTypesOption.id === personalSocialDetails.appetiteType?.id ? personalSocialDetails.appetiteType : appetiteTypesOption" *ngFor="let appetiteTypesOption of appetitetypes; trackBy: trackAppetiteTypesById">{{appetiteTypesOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_micturitionType">Micturition Type</label>
+            <select class="form-control" id="field_micturitionType" name="micturitionType" [(ngModel)]="personalSocialDetails.micturitionType">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="micturitionTypesOption.id === personalSocialDetails.micturitionType?.id ? personalSocialDetails.micturitionType : micturitionTypesOption" *ngFor="let micturitionTypesOption of micturitiontypes; trackBy: trackMicturitionTypesById">{{micturitionTypesOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_bowelHabit">Bowel Habit</label>
+            <select class="form-control" id="field_bowelHabit" name="bowelHabit" [(ngModel)]="personalSocialDetails.bowelHabit">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="bowelHabitsOption.id === personalSocialDetails.bowelHabit?.id ? personalSocialDetails.bowelHabit : bowelHabitsOption" *ngFor="let bowelHabitsOption of bowelhabits; trackBy: trackBowelHabitsById">{{bowelHabitsOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_addiction">Addiction</label>
+            <select class="form-control" id="field_addiction" name="addiction" [(ngModel)]="personalSocialDetails.addiction">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="addictionsOption.id === personalSocialDetails.addiction?.id ? personalSocialDetails.addiction : addictionsOption" *ngFor="let addictionsOption of addictions; trackBy: trackAddictionsById">{{addictionsOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,102 @@
+
+<div *ngIf="patient">
+    <h2><span>Patient</span> {{patient.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Patient Name</span></dt>
+        <dd>
+            <span>{{patient.patientName}}</span>
+        </dd>
+        <dt><span>Hospital Number</span></dt>
+        <dd>
+            <span>{{patient.hospitalNumber}}</span>
+        </dd>
+        <dt><span>Registered Date</span></dt>
+        <dd>
+            <span>{{patient.registeredDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Age</span></dt>
+        <dd>
+            <span>{{patient.age}}</span>
+        </dd>
+        <dt><span>Birth Date</span></dt>
+        <dd>
+            <span>{{patient.birthDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Gender</span></dt>
+        <dd>
+            <span>{{patient.gender}}</span>
+        </dd>
+        <dt><span>Patient Height</span></dt>
+        <dd>
+            <span>{{patient.patientHeight}}</span>
+        </dd>
+        <dt><span>Patient Wight</span></dt>
+        <dd>
+            <span>{{patient.patientWight}}</span>
+        </dd>
+        <dt><span>Marital Status</span></dt>
+        <dd>
+            <span>{{patient.maritalStatus}}</span>
+        </dd>
+        <dt><span>Nic Number</span></dt>
+        <dd>
+            <span>{{patient.nicNumber}}</span>
+        </dd>
+        <dt><span>Telephone Number</span></dt>
+        <dd>
+            <span>{{patient.telephoneNumber}}</span>
+        </dd>
+        <dt><span>Emergency Contact Number</span></dt>
+        <dd>
+            <span>{{patient.emergencyContactNumber}}</span>
+        </dd>
+        <dt><span>Email</span></dt>
+        <dd>
+            <span>{{patient.email}}</span>
+        </dd>
+        <dt><span>Address</span></dt>
+        <dd>
+            <span>{{patient.address}}</span>
+        </dd>
+        <dt><span>Occupation</span></dt>
+        <dd>
+            <span>{{patient.occupation}}</span>
+        </dd>
+        <dt><span>Blood Group</span></dt>
+        <dd>
+            <span>{{patient.bloodGroup}}</span>
+        </dd>
+        <dt><span>Guardian Name</span></dt>
+        <dd>
+            <span>{{patient.guardianName}}</span>
+        </dd>
+        <dt><span>Guardian Address</span></dt>
+        <dd>
+            <span>{{patient.guardianAddress}}</span>
+        </dd>
+        <dt><span>Referring Physician</span></dt>
+        <dd>
+            <span>{{patient.referringPhysician}}</span>
+        </dd>
+        <dt><span>Referring Hospital</span></dt>
+        <dd>
+            <span>{{patient.referringHospital}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'patient/'+ patient.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,127 @@
+entity Patient {
+	patientName String required,
+    hospitalNumber String required,
+    registeredDate LocalDate required,
+    age Integer,
+    birthDate LocalDate,
+    gender Gender required,
+    patientHeight String,
+    patientWight Integer,
+    maritalStatus MaritalStatus,
+    nicNumber String pattern(/[0-9]{9}[vVxX]/),
+    telephoneNumber String pattern(/(0|\+94)[0-9]{9}/),
+    emergencyContactNumber String pattern(/(0|\+94)[0-9]{9}/),
+    email String,
+    address String,
+    occupation String,
+    bloodGroup BloodGroup,
+    guardianName String,
+    guardianAddress String,
+    referringPhysician String,
+    referringHospital String
+}
+
+enum Gender{
+	MALE,
+	FEMALE
+}
+
+enum MaritalStatus{
+	MARRIED,
+    SINGLE,
+    DIVORCED,
+    WIDOWED
+}
+
+enum BloodGroup{
+	A_PLUS, A_MINUS, B_PLUS, B_MINUS, AB_PLUS, AB_MINUS, O_PLUS, O_MINUS
+}
+
+entity PersonalSocialDetails{
+    education String,
+    employment String,
+    assistanceAtHome String
+}
+
+entity SleepTypes{
+	sleepType String
+}
+
+entity AppetiteTypes{
+	appetiteType String
+}
+
+entity MicturitionTypes{
+	micturitionType String
+}
+
+entity BowelHabits{
+	bowelHabit String
+}
+
+entity Addictions{
+	addiction String
+}
+
+entity GynaecologicalHistory{
+	ageOfMenarche String,
+	lastMenstrualPeriod String,
+	regularityOfCycle String
+}
+
+entity Allergy {
+    additionalInformation String
+}
+
+entity AllergyType{
+	allergyType String
+}
+
+entity FamilyHistory{
+	fathersDiseases String,
+	mothersDiseases String,
+	siblingsDiseases String,
+	otherRelativesDiseases String
+}
+
+entity DrugHistory{
+	isCompliantPatient Boolean,
+    additionalMedicationInformation String
+}
+
+entity Medication {
+	dose String,
+	frequency String,
+	route String,
+	maneNocte String,
+    usingCurrently Boolean
+}
+
+entity Medicine {
+	name String required
+}
+
+relationship OneToOne{
+	PersonalSocialDetails { patient required} to Patient,
+    GynaecologicalHistory { patient required} to Patient,
+    FamilyHistory { patient required} to Patient,
+    DrugHistory { patient required} to Patient,
+    PersonalSocialDetails { sleepType } to SleepTypes,
+    PersonalSocialDetails { appetiteType } to AppetiteTypes,
+    PersonalSocialDetails { micturitionType } to MicturitionTypes,
+    PersonalSocialDetails { bowelHabit } to BowelHabits,
+    PersonalSocialDetails { addiction } to Addictions,
+    Allergy { allergyType } to AllergyType,
+    Allergy { patient required} to Patient,
+    Medication { medicine required} to Medicine
+}
+
+relationship OneToMany{
+    DrugHistory { medications } to Medication
+}
+
+paginate Patient, Medicine, Medication, DrugHistory, AllergyType, Allergy,
+FamilyHistory, GynaecologicalHistory, PersonalSocialDetails, SleepTypes,
+AppetiteTypes, MicturitionTypes, BowelHabits, Addictions  with pagination
+
+service all with serviceImpl

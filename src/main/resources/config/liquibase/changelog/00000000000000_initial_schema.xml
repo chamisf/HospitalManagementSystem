@@ -86,7 +86,7 @@
                                  referencedColumnNames="id"
                                  referencedTableName="user"/>
         <loadData encoding="UTF-8"
-                  file="config/liquibase/users.csv"
+                  file="config/liquibase/data/users.csv"
                   separator=";"
                   tableName="user">
             <column name="activated" type="boolean"/>
@@ -94,12 +94,12 @@
         </loadData>
         <dropDefaultValue tableName="user" columnName="created_date" columnDataType="datetime"/>
         <loadData encoding="UTF-8"
-                  file="config/liquibase/authorities.csv"
+                  file="config/liquibase/data/authorities.csv"
                   separator=";"
                   tableName="authority"/>
 
         <loadData encoding="UTF-8"
-                  file="config/liquibase/users_authorities.csv"
+                  file="config/liquibase/data/users_authorities.csv"
                   separator=";"
                   tableName="user_authority"/>
         <createTable tableName="persistent_audit_event">
