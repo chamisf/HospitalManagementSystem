@@ -9,7 +9,6 @@ import org.fits.hms.security.AuthoritiesConstants;
 import org.fits.hms.security.SecurityUtils;
 import org.fits.hms.service.util.RandomUtil;
 import org.fits.hms.service.dto.UserDTO;
-import org.fits.hms.web.rest.vm.ManagedUserVM;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
