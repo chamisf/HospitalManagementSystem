@@ -1,7 +1,7 @@
 <nav id="sidebar" class="hms-sidebar" *ngIf="isAuthenticated()">
     <ul class="nav flex-column nav-tabs">
         <li class="nav-item">
-            <a class="nav-link ">
+            <a class="nav-link" routerLink="patients/1" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
                 <i class="fa fa-users" aria-hidden="true"></i>
                 <span>
                     Patient Registration

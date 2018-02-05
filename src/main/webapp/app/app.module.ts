@@ -10,6 +10,7 @@ import { HospitalManagementSystemHomeModule } from './home/home.module';
 import { HospitalManagementSystemAdminModule } from './admin/admin.module';
 import { HospitalManagementSystemAccountModule } from './account/account.module';
 import { HospitalManagementSystemEntityModule } from './entities/entity.module';
+import {HospitalManagementSystemViewsModule} from "./views/views.module";
 import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
 
@@ -33,6 +34,7 @@ import {
         HospitalManagementSystemAdminModule,
         HospitalManagementSystemAccountModule,
         HospitalManagementSystemEntityModule,
+        HospitalManagementSystemViewsModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
