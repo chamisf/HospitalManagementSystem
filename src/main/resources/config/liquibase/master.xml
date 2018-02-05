@@ -5,6 +5,26 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133641_added_entity_Patient.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133642_added_entity_PersonalSocialDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133643_added_entity_SleepTypes.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133644_added_entity_AppetiteTypes.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133645_added_entity_MicturitionTypes.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133646_added_entity_BowelHabits.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133647_added_entity_Addictions.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133648_added_entity_GynaecologicalHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133649_added_entity_Allergy.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133650_added_entity_AllergyType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133651_added_entity_FamilyHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133652_added_entity_DrugHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133653_added_entity_Medication.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133654_added_entity_Medicine.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20180106133642_added_entity_constraints_PersonalSocialDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133648_added_entity_constraints_GynaecologicalHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133649_added_entity_constraints_Allergy.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133651_added_entity_constraints_FamilyHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133652_added_entity_constraints_DrugHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180106133653_added_entity_constraints_Medication.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

@@ -1,0 +1,70 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myMedicationLabel">Create or edit a Medication</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!medication.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="medication.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_dose">Dose</label>
+            <input type="text" class="form-control" name="dose" id="field_dose"
+                [(ngModel)]="medication.dose" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_frequency">Frequency</label>
+            <input type="text" class="form-control" name="frequency" id="field_frequency"
+                [(ngModel)]="medication.frequency" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_route">Route</label>
+            <input type="text" class="form-control" name="route" id="field_route"
+                [(ngModel)]="medication.route" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_maneNocte">Mane Nocte</label>
+            <input type="text" class="form-control" name="maneNocte" id="field_maneNocte"
+                [(ngModel)]="medication.maneNocte" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_usingCurrently">Using Currently</label>
+            <input type="checkbox" class="form-control" name="usingCurrently" id="field_usingCurrently"
+                [(ngModel)]="medication.usingCurrently" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_drugHistory">Drug History</label>
+            <select class="form-control" id="field_drugHistory" name="drugHistory" [(ngModel)]="medication.drugHistory" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="drugHistoryOption.id === medication.drugHistory?.id ? medication.drugHistory : drugHistoryOption" *ngFor="let drugHistoryOption of drughistories; trackBy: trackDrugHistoryById">{{drugHistoryOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_medicine">Medicine</label>
+            <select class="form-control" id="field_medicine" name="medicine" [(ngModel)]="medication.medicine" required>
+                <option *ngIf="!editForm.value.medicine" [ngValue]="null" selected></option>
+                <option [ngValue]="medicineOption.id === medication.medicine?.id ? medication.medicine : medicineOption" *ngFor="let medicineOption of medicines; trackBy: trackMedicineById">{{medicineOption.id}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.medicine?.dirty && editForm.controls.medicine?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.medicine?.errors?.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

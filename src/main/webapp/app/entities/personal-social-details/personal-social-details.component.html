@@ -1,0 +1,106 @@
+<div>
+    <h2>
+        <span>Personal Social Details</span>
+        <button class="btn btn-primary float-right jh-create-entity create-personal-social-details" [routerLink]="['/', { outlets: { popup: ['personal-social-details-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Personal Social Details
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="personalSocialDetails">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="education"><span>Education</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="employment"><span>Employment</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="assistanceAtHome"><span>Assistance At Home</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="patient.id"><span>Patient</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="sleepType.id"><span>Sleep Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="appetiteType.id"><span>Appetite Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="micturitionType.id"><span>Micturition Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="bowelHabit.id"><span>Bowel Habit</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="addiction.id"><span>Addiction</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let personalSocialDetails of personalSocialDetails ;trackBy: trackId">
+                <td><a [routerLink]="['../personal-social-details', personalSocialDetails.id ]">{{personalSocialDetails.id}}</a></td>
+                <td>{{personalSocialDetails.education}}</td>
+                <td>{{personalSocialDetails.employment}}</td>
+                <td>{{personalSocialDetails.assistanceAtHome}}</td>
+                <td>
+                    <div *ngIf="personalSocialDetails.patient">
+                        <a [routerLink]="['../patient', personalSocialDetails.patient?.id ]" >{{personalSocialDetails.patient?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="personalSocialDetails.sleepType">
+                        <a [routerLink]="['../sleep-types', personalSocialDetails.sleepType?.id ]" >{{personalSocialDetails.sleepType?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="personalSocialDetails.appetiteType">
+                        <a [routerLink]="['../appetite-types', personalSocialDetails.appetiteType?.id ]" >{{personalSocialDetails.appetiteType?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="personalSocialDetails.micturitionType">
+                        <a [routerLink]="['../micturition-types', personalSocialDetails.micturitionType?.id ]" >{{personalSocialDetails.micturitionType?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="personalSocialDetails.bowelHabit">
+                        <a [routerLink]="['../bowel-habits', personalSocialDetails.bowelHabit?.id ]" >{{personalSocialDetails.bowelHabit?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="personalSocialDetails.addiction">
+                        <a [routerLink]="['../addictions', personalSocialDetails.addiction?.id ]" >{{personalSocialDetails.addiction?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../personal-social-details', personalSocialDetails.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'personal-social-details/'+ personalSocialDetails.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'personal-social-details/'+ personalSocialDetails.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="personalSocialDetails && personalSocialDetails.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

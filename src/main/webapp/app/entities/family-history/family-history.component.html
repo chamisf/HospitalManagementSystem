@@ -1,0 +1,78 @@
+<div>
+    <h2>
+        <span>Family Histories</span>
+        <button class="btn btn-primary float-right jh-create-entity create-family-history" [routerLink]="['/', { outlets: { popup: ['family-history-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Family History
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="familyHistories">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fathersDiseases"><span>Fathers Diseases</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="mothersDiseases"><span>Mothers Diseases</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="siblingsDiseases"><span>Siblings Diseases</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="otherRelativesDiseases"><span>Other Relatives Diseases</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="patient.id"><span>Patient</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let familyHistory of familyHistories ;trackBy: trackId">
+                <td><a [routerLink]="['../family-history', familyHistory.id ]">{{familyHistory.id}}</a></td>
+                <td>{{familyHistory.fathersDiseases}}</td>
+                <td>{{familyHistory.mothersDiseases}}</td>
+                <td>{{familyHistory.siblingsDiseases}}</td>
+                <td>{{familyHistory.otherRelativesDiseases}}</td>
+                <td>
+                    <div *ngIf="familyHistory.patient">
+                        <a [routerLink]="['../patient', familyHistory.patient?.id ]" >{{familyHistory.patient?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../family-history', familyHistory.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'family-history/'+ familyHistory.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'family-history/'+ familyHistory.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="familyHistories && familyHistories.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

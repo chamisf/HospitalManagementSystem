@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity PersonalSocialDetails.
+    -->
+    <changeSet id="20180106133642-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="patient_id"
+                                 baseTableName="personal_social_details"
+                                 constraintName="fk_personal_social_details_patient_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="patient"/>
+
+        <addForeignKeyConstraint baseColumnNames="sleep_type_id"
+                                 baseTableName="personal_social_details"
+                                 constraintName="fk_personal_social_details_sleep_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sleep_types"/>
+
+        <addForeignKeyConstraint baseColumnNames="appetite_type_id"
+                                 baseTableName="personal_social_details"
+                                 constraintName="fk_personal_social_details_appetite_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="appetite_types"/>
+
+        <addForeignKeyConstraint baseColumnNames="micturition_type_id"
+                                 baseTableName="personal_social_details"
+                                 constraintName="fk_personal_social_details_micturition_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="micturition_types"/>
+
+        <addForeignKeyConstraint baseColumnNames="bowel_habit_id"
+                                 baseTableName="personal_social_details"
+                                 constraintName="fk_personal_social_details_bowel_habit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bowel_habits"/>
+
+        <addForeignKeyConstraint baseColumnNames="addiction_id"
+                                 baseTableName="personal_social_details"
+                                 constraintName="fk_personal_social_details_addiction_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="addictions"/>
+
+    </changeSet>
+</databaseChangeLog>
