@@ -1,0 +1,9 @@
+.hms-sidebar {
+    li.nav-item {
+        &:hover {
+            border: darkorange;
+            border-style: inherit;
+            background-color: #d5d6d7;
+        }
+    }
+}

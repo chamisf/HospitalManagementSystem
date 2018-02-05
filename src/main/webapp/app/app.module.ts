@@ -19,7 +19,8 @@ import {
     JhiMainComponent,
     NavbarComponent,
     FooterComponent,
-    ErrorComponent
+    ErrorComponent,
+    SidenavComponent
 } from './layouts';
 
 @NgModule({
@@ -38,7 +39,8 @@ import {
         JhiMainComponent,
         NavbarComponent,
         ErrorComponent,
-        FooterComponent
+        FooterComponent,
+        SidenavComponent
     ],
     providers: [
         customHttpProvider(),
