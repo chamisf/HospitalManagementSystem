@@ -266,4 +266,16 @@ public class GynaecologicalHistoryResourceIntTest {
         gynaecologicalHistory1.setId(null);
         assertThat(gynaecologicalHistory1).isNotEqualTo(gynaecologicalHistory2);
     }
+
+    @Test
+    @Transactional
+    public void testFindFirstByPatientId() {
+        Long patientId = gynaecologicalHistory.getPatient().getId();
+        gynaecologicalHistoryService.save(gynaecologicalHistory);
+        em.flush();
+
+        GynaecologicalHistory result = gynaecologicalHistoryService.findFristByPatientId(patientId);
+
+        assertThat(result.getId()).isEqualTo(gynaecologicalHistory.getId());
+    }
 }

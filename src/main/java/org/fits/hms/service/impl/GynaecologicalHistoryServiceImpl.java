@@ -74,4 +74,9 @@ public class GynaecologicalHistoryServiceImpl implements GynaecologicalHistorySe
         log.debug("Request to delete GynaecologicalHistory : {}", id);
         gynaecologicalHistoryRepository.delete(id);
     }
+
+    @Override
+    public GynaecologicalHistory findFristByPatientId(Long id) {
+        return gynaecologicalHistoryRepository.findFirstByPatientId(id);
+    }
 }

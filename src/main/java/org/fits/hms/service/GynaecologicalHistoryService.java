@@ -39,4 +39,12 @@ public interface GynaecologicalHistoryService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+    /**
+     * Find first match of gynaecological history of patient matched to given id.
+     *
+     * @param id patient id
+     * @return gynaecologincal history of given patient
+     */
+    GynaecologicalHistory findFristByPatientId(Long id);
 }

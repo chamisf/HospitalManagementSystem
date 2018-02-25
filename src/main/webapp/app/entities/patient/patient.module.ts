@@ -1,7 +1,7 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import {NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {RouterModule} from '@angular/router';
 
-import { HospitalManagementSystemSharedModule } from '../../shared';
+import {HospitalManagementSystemSharedModule} from '../../shared';
 import {
     PatientService,
     PatientPopupService,
@@ -15,6 +15,10 @@ import {
     patientPopupRoute,
     PatientResolvePagingParams,
 } from './';
+import {GynaecologicalHistoryDetailComponent} from "../gynaecological-history";
+import {DrugHistoryDetailComponent} from "../drug-history";
+import {FamilyHistoryDetailComponent} from "../family-history";
+import {AllergyDetailComponent} from "../allergy";
 
 const ENTITY_STATES = [
     ...patientRoute,
@@ -46,6 +50,10 @@ const ENTITY_STATES = [
         PatientPopupService,
         PatientResolvePagingParams,
     ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    exports: [
+        PatientDetailComponent,
+    ]
 })
-export class HospitalManagementSystemPatientModule {}
+export class HospitalManagementSystemPatientModule {
+}

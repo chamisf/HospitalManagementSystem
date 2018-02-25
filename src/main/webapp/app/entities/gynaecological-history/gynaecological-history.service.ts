@@ -36,6 +36,13 @@ export class GynaecologicalHistoryService {
         });
     }
 
+    findByPatientId(id: number): Observable<GynaecologicalHistory> {
+        return this.http.get(`${this.resourceUrl}/by-patient/${id}`).map((res: Response) => {
+            const jsonResponse = res.json();
+            return this.convertItemFromServer(jsonResponse);
+        });
+    }
+
     query(req?: any): Observable<ResponseWrapper> {
         const options = createRequestOption(req);
         return this.http.get(this.resourceUrl, options)

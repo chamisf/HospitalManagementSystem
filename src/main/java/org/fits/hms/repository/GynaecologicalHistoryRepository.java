@@ -13,4 +13,11 @@ import org.springframework.data.jpa.repository.*;
 @Repository
 public interface GynaecologicalHistoryRepository extends JpaRepository<GynaecologicalHistory, Long> {
 
+    /**
+     * Find first match of gynaecological history of patient matched to given id.
+     *
+     * @param id patient id
+     * @return gynaecologincal history of given patient
+     */
+    GynaecologicalHistory findFirstByPatientId(Long id);
 }

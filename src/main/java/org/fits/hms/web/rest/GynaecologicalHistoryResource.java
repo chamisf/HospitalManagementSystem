@@ -112,6 +112,20 @@ public class GynaecologicalHistoryResource {
     }
 
     /**
+     * GET  /gynaecological-histories/by-patient/:id : get the gynaecologicalHistory of given :id patient.
+     *
+     * @param id the id of the patient of gynaecologicalHistory to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the gynaecologicalHistory, or with status 404 (Not Found)
+     */
+    @GetMapping("/gynaecological-histories/by-patient/{id}")
+    @Timed
+    public ResponseEntity<GynaecologicalHistory> getFirstGynaecologicalHistoryByPatientId(@PathVariable Long id) {
+        log.debug("REST request to get GynaecologicalHistory by Patient Id : {}", id);
+        GynaecologicalHistory gynaecologicalHistory = gynaecologicalHistoryService.findFristByPatientId(id);
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(gynaecologicalHistory));
+    }
+
+    /**
      * DELETE  /gynaecological-histories/:id : delete the "id" gynaecologicalHistory.
      *
      * @param id the id of the gynaecologicalHistory to delete

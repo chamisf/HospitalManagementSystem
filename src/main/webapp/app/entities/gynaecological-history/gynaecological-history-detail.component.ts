@@ -1,10 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs/Rx';
-import { JhiEventManager } from 'ng-jhipster';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Subscription} from 'rxjs/Rx';
+import {JhiEventManager} from 'ng-jhipster';
 
-import { GynaecologicalHistory } from './gynaecological-history.model';
-import { GynaecologicalHistoryService } from './gynaecological-history.service';
+import {GynaecologicalHistory} from './gynaecological-history.model';
+import {GynaecologicalHistoryService} from './gynaecological-history.service';
 
 @Component({
     selector: 'jhi-gynaecological-history-detail',
@@ -16,18 +16,23 @@ export class GynaecologicalHistoryDetailComponent implements OnInit, OnDestroy {
     private subscription: Subscription;
     private eventSubscriber: Subscription;
 
-    constructor(
-        private eventManager: JhiEventManager,
-        private gynaecologicalHistoryService: GynaecologicalHistoryService,
-        private route: ActivatedRoute
-    ) {
+    constructor(private eventManager: JhiEventManager,
+                private gynaecologicalHistoryService: GynaecologicalHistoryService,
+                private route: ActivatedRoute) {
     }
 
     ngOnInit() {
-        this.subscription = this.route.params.subscribe((params) => {
-            this.load(params['id']);
+        this.subscription = this.route.parent.params.subscribe((params) => {
+            this.loadByPatientId(params['id']);
         });
         this.registerChangeInGynaecologicalHistories();
+    }
+
+    private loadByPatientId(id) {
+        this.gynaecologicalHistoryService.findByPatientId(id).subscribe((gynaecologicalHistory) => {
+            this.gynaecologicalHistory = gynaecologicalHistory;
+        });
+
     }
 
     load(id) {
@@ -35,6 +40,7 @@ export class GynaecologicalHistoryDetailComponent implements OnInit, OnDestroy {
             this.gynaecologicalHistory = gynaecologicalHistory;
         });
     }
+
     previousState() {
         window.history.back();
     }

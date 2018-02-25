@@ -1,90 +1,97 @@
-
 <div *ngIf="patient">
-    <h2><span>Patient</span> {{patient.id}}</h2>
+    <h2><span>{{patient.patientName}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
-    <dl class="row-md jh-entity-details">
-        <dt><span>Patient Name</span></dt>
-        <dd>
-            <span>{{patient.patientName}}</span>
-        </dd>
-        <dt><span>Hospital Number</span></dt>
-        <dd>
-            <span>{{patient.hospitalNumber}}</span>
-        </dd>
-        <dt><span>Registered Date</span></dt>
-        <dd>
-            <span>{{patient.registeredDate | date:'mediumDate'}}</span>
-        </dd>
-        <dt><span>Age</span></dt>
-        <dd>
-            <span>{{patient.age}}</span>
-        </dd>
-        <dt><span>Birth Date</span></dt>
-        <dd>
-            <span>{{patient.birthDate | date:'mediumDate'}}</span>
-        </dd>
-        <dt><span>Gender</span></dt>
-        <dd>
-            <span>{{patient.gender}}</span>
-        </dd>
-        <dt><span>Patient Height</span></dt>
-        <dd>
-            <span>{{patient.patientHeight}}</span>
-        </dd>
-        <dt><span>Patient Wight</span></dt>
-        <dd>
-            <span>{{patient.patientWight}}</span>
-        </dd>
-        <dt><span>Marital Status</span></dt>
-        <dd>
-            <span>{{patient.maritalStatus}}</span>
-        </dd>
-        <dt><span>Nic Number</span></dt>
-        <dd>
-            <span>{{patient.nicNumber}}</span>
-        </dd>
-        <dt><span>Telephone Number</span></dt>
-        <dd>
-            <span>{{patient.telephoneNumber}}</span>
-        </dd>
-        <dt><span>Emergency Contact Number</span></dt>
-        <dd>
-            <span>{{patient.emergencyContactNumber}}</span>
-        </dd>
-        <dt><span>Email</span></dt>
-        <dd>
-            <span>{{patient.email}}</span>
-        </dd>
-        <dt><span>Address</span></dt>
-        <dd>
-            <span>{{patient.address}}</span>
-        </dd>
-        <dt><span>Occupation</span></dt>
-        <dd>
-            <span>{{patient.occupation}}</span>
-        </dd>
-        <dt><span>Blood Group</span></dt>
-        <dd>
-            <span>{{patient.bloodGroup}}</span>
-        </dd>
-        <dt><span>Guardian Name</span></dt>
-        <dd>
-            <span>{{patient.guardianName}}</span>
-        </dd>
-        <dt><span>Guardian Address</span></dt>
-        <dd>
-            <span>{{patient.guardianAddress}}</span>
-        </dd>
-        <dt><span>Referring Physician</span></dt>
-        <dd>
-            <span>{{patient.referringPhysician}}</span>
-        </dd>
-        <dt><span>Referring Hospital</span></dt>
-        <dd>
-            <span>{{patient.referringHospital}}</span>
-        </dd>
-    </dl>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="class col-md-4">Patient Name:</div>
+                <div class="class col-md-8">{{patient.patientName}}</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">Hospital Number</div>
+                <div class="class col-md-8">{{patient.hospitalNumber}}</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">Registered Date</div>
+                <div class="class col-md-8">{{patient.registeredDate |  date: 'dd/MM/yyyy'}}</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">Address</div>
+                <div class="class col-md-8">{{patient.address}}</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">Age</div>
+                <div class="class col-md-8">{{patient.age}}</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">Date of Birth</div>
+                <div class="class col-md-8">{{patient.birthDate | date: 'dd/MM/yyyy'}}</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">Gender</div>
+                <div class="class col-md-8">{{patient.gender}}</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">Patient Height</div>
+                <div class="class col-md-8">{{patient.patientHeight}}</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">Patient Weight</div>
+                <div class="class col-md-8">{{patient.patientWight}}</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">Maritial State</div>
+                <div class="class col-md-8">{{patient.maritalStatus}}</div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="class col-md-4">Nationality</div>
+                <div class="class col-md-8">Sri Lankan</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">NIC:</div>
+                <div class="class col-md-8">{{patient.nicNumber}}</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">Telephone Number</div>
+                <div class="class col-md-8">{{patient.telephoneNumber}}</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">Emergency Contact Number</div>
+                <div class="class col-md-8">{{patient.emergencyContactNumber}}</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">Email</div>
+                <div class="class col-md-8">{{patient.email}}</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">Occupation</div>
+                <div class="class col-md-8">{{patient.occupation}}</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">Blood Group</div>
+                <div class="class col-md-8">{{patient.bloodGroup}}</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">Guradian Name</div>
+                <div class="class col-md-8">{{patient.guardianName}}</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">Guardian Address</div>
+                <div class="class col-md-8">{{patient.guardianAddress}}</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">Referring Physician</div>
+                <div class="class col-md-8">{{patient.referringPhysician}}</div>
+            </div>
+            <div class="row">
+                <div class="class col-md-4">Referring Hospital & Unit</div>
+                <div class="class col-md-8">{{patient.referringPhysician}}</div>
+            </div>
+        </div>
+    </div>
 
     <button type="submit"
             (click)="previousState()"
