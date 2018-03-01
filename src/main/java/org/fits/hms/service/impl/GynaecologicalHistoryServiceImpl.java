@@ -76,7 +76,7 @@ public class GynaecologicalHistoryServiceImpl implements GynaecologicalHistorySe
     }
 
     @Override
-    public GynaecologicalHistory findFristByPatientId(Long id) {
+    public GynaecologicalHistory findFirstByPatientId(Long id) {
         return gynaecologicalHistoryRepository.findFirstByPatientId(id);
     }
 }

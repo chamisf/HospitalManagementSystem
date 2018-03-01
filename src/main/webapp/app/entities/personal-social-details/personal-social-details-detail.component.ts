@@ -1,10 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs/Rx';
-import { JhiEventManager } from 'ng-jhipster';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Subscription} from 'rxjs/Rx';
+import {JhiEventManager} from 'ng-jhipster';
 
-import { PersonalSocialDetails } from './personal-social-details.model';
-import { PersonalSocialDetailsService } from './personal-social-details.service';
+import {PersonalSocialDetails} from './personal-social-details.model';
+import {PersonalSocialDetailsService} from './personal-social-details.service';
 
 @Component({
     selector: 'jhi-personal-social-details-detail',
@@ -16,16 +16,14 @@ export class PersonalSocialDetailsDetailComponent implements OnInit, OnDestroy {
     private subscription: Subscription;
     private eventSubscriber: Subscription;
 
-    constructor(
-        private eventManager: JhiEventManager,
-        private personalSocialDetailsService: PersonalSocialDetailsService,
-        private route: ActivatedRoute
-    ) {
+    constructor(private eventManager: JhiEventManager,
+                private personalSocialDetailsService: PersonalSocialDetailsService,
+                private route: ActivatedRoute) {
     }
 
     ngOnInit() {
-        this.subscription = this.route.params.subscribe((params) => {
-            this.load(params['id']);
+        this.subscription = this.route.parent.params.subscribe((params) => {
+            this.loadByPatientId(params['id']);
         });
         this.registerChangeInPersonalSocialDetails();
     }
@@ -35,6 +33,13 @@ export class PersonalSocialDetailsDetailComponent implements OnInit, OnDestroy {
             this.personalSocialDetails = personalSocialDetails;
         });
     }
+
+    private loadByPatientId(id) {
+        this.personalSocialDetailsService.loadByPatientId(id).subscribe((personalSocialDetails) => {
+            this.personalSocialDetails = personalSocialDetails;
+        });
+    }
+
     previousState() {
         window.history.back();
     }

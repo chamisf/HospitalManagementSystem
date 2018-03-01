@@ -39,4 +39,12 @@ public interface PersonalSocialDetailsService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+    /**
+     * Find first match of personal and social details of patient matched to given id.
+     *
+     * @param id patient id
+     * @return personal and social details of given patient
+     */
+    PersonalSocialDetails findFirstByPatientId(Long id);
 }

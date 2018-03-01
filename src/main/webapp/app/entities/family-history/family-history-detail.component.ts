@@ -1,10 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs/Rx';
-import { JhiEventManager } from 'ng-jhipster';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Subscription} from 'rxjs/Rx';
+import {JhiEventManager} from 'ng-jhipster';
 
-import { FamilyHistory } from './family-history.model';
-import { FamilyHistoryService } from './family-history.service';
+import {FamilyHistory} from './family-history.model';
+import {FamilyHistoryService} from './family-history.service';
 
 @Component({
     selector: 'jhi-family-history-detail',
@@ -16,16 +16,14 @@ export class FamilyHistoryDetailComponent implements OnInit, OnDestroy {
     private subscription: Subscription;
     private eventSubscriber: Subscription;
 
-    constructor(
-        private eventManager: JhiEventManager,
-        private familyHistoryService: FamilyHistoryService,
-        private route: ActivatedRoute
-    ) {
+    constructor(private eventManager: JhiEventManager,
+                private familyHistoryService: FamilyHistoryService,
+                private route: ActivatedRoute) {
     }
 
     ngOnInit() {
-        this.subscription = this.route.params.subscribe((params) => {
-            this.load(params['id']);
+        this.subscription = this.route.parent.params.subscribe((params) => {
+            this.loadByPatientId(params['id']);
         });
         this.registerChangeInFamilyHistories();
     }
@@ -35,6 +33,13 @@ export class FamilyHistoryDetailComponent implements OnInit, OnDestroy {
             this.familyHistory = familyHistory;
         });
     }
+
+    loadByPatientId(id) {
+        this.familyHistoryService.findByPatientId(id).subscribe((familyHistory) => {
+            this.familyHistory = familyHistory;
+        });
+    }
+
     previousState() {
         window.history.back();
     }

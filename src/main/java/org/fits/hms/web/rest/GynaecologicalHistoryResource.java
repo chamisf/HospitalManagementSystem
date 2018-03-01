@@ -121,7 +121,7 @@ public class GynaecologicalHistoryResource {
     @Timed
     public ResponseEntity<GynaecologicalHistory> getFirstGynaecologicalHistoryByPatientId(@PathVariable Long id) {
         log.debug("REST request to get GynaecologicalHistory by Patient Id : {}", id);
-        GynaecologicalHistory gynaecologicalHistory = gynaecologicalHistoryService.findFristByPatientId(id);
+        GynaecologicalHistory gynaecologicalHistory = gynaecologicalHistoryService.findFirstByPatientId(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(gynaecologicalHistory));
     }
 

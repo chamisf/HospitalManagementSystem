@@ -1,7 +1,5 @@
 
 <div *ngIf="familyHistory">
-    <h2><span>Family History</span> {{familyHistory.id}}</h2>
-    <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
         <dt><span>Fathers Diseases</span></dt>
@@ -19,12 +17,6 @@
         <dt><span>Other Relatives Diseases</span></dt>
         <dd>
             <span>{{familyHistory.otherRelativesDiseases}}</span>
-        </dd>
-        <dt><span>Patient</span></dt>
-        <dd>
-            <div *ngIf="familyHistory.patient">
-                <a [routerLink]="['/patient', familyHistory.patient?.id]">{{familyHistory.patient?.id}}</a>
-            </div>
         </dd>
     </dl>
 

@@ -3,17 +3,27 @@ import {CommonModule} from '@angular/common';
 
 import {PatientViewRoutingModule} from './patient-view-routing.module';
 import {PatientViewComponent} from './patient-view.component';
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import {HospitalManagementSystemPatientModule} from "../../entities/patient/patient.module";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {HospitalManagementSystemPatientModule} from '../../entities/patient/patient.module';
+import {PatientHeaderComponent} from './patient-header/patient-header.component';
+import {AllergiesHistoryComponent} from "./allergies-history/allergies-history.component";
+import {HospitalManagementSystemSharedModule} from "../../shared";
+import {AllergyTypeResolvePagingParams} from "../../entities/allergy-type";
 
 @NgModule({
     imports: [
         CommonModule,
         PatientViewRoutingModule,
         NgbModule.forRoot(),
-        HospitalManagementSystemPatientModule
+        HospitalManagementSystemPatientModule,
+        HospitalManagementSystemSharedModule
     ],
-    declarations: [PatientViewComponent]
+    declarations: [
+        PatientViewComponent, PatientHeaderComponent, AllergiesHistoryComponent
+    ],
+    providers: [
+        AllergyTypeResolvePagingParams
+    ]
 })
 export class PatientViewModule {
 }

@@ -74,4 +74,9 @@ public class PersonalSocialDetailsServiceImpl implements PersonalSocialDetailsSe
         log.debug("Request to delete PersonalSocialDetails : {}", id);
         personalSocialDetailsRepository.delete(id);
     }
+
+    @Override
+    public PersonalSocialDetails findFirstByPatientId(Long id) {
+        return personalSocialDetailsRepository.findFirstByPatientId(id);
+    }
 }

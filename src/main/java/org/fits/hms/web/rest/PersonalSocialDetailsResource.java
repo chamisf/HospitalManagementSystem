@@ -112,6 +112,20 @@ public class PersonalSocialDetailsResource {
     }
 
     /**
+     * GET  /personal-social-details/:id : get the "id" personalSocialDetails.
+     *
+     * @param id the id of the personalSocialDetails to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the personalSocialDetails, or with status 404 (Not Found)
+     */
+    @GetMapping("/personal-social-details//by-patient/{id}")
+    @Timed
+    public ResponseEntity<PersonalSocialDetails> getPersonalSocialDetailsByPatientId(@PathVariable Long id) {
+        log.debug("REST request to get PersonalSocialDetails by Patient Id : {}", id);
+        PersonalSocialDetails personalSocialDetails = personalSocialDetailsService.findFirstByPatientId(id);
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(personalSocialDetails));
+    }
+
+    /**
      * DELETE  /personal-social-details/:id : delete the "id" personalSocialDetails.
      *
      * @param id the id of the personalSocialDetails to delete

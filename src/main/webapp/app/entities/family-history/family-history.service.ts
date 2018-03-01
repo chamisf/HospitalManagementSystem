@@ -5,6 +5,7 @@ import { SERVER_API_URL } from '../../app.constants';
 
 import { FamilyHistory } from './family-history.model';
 import { ResponseWrapper, createRequestOption } from '../../shared';
+import {GynaecologicalHistory} from "../gynaecological-history/gynaecological-history.model";
 
 @Injectable()
 export class FamilyHistoryService {
@@ -31,6 +32,13 @@ export class FamilyHistoryService {
 
     find(id: number): Observable<FamilyHistory> {
         return this.http.get(`${this.resourceUrl}/${id}`).map((res: Response) => {
+            const jsonResponse = res.json();
+            return this.convertItemFromServer(jsonResponse);
+        });
+    }
+
+    findByPatientId(id: number): Observable<FamilyHistory> {
+        return this.http.get(`${this.resourceUrl}/by-patient/${id}`).map((res: Response) => {
             const jsonResponse = res.json();
             return this.convertItemFromServer(jsonResponse);
         });

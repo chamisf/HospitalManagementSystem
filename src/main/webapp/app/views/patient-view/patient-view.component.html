@@ -1,3 +1,5 @@
+<jhi-patient-header [patientId]=id></jhi-patient-header>
+<hr>
 <ul class="nav nav-tabs nav-justified">
     <li class="nav-item">
         <a class="nav-link" [routerLink]="['/patients', id, 'bio']" routerLinkActive="active"
@@ -23,13 +25,13 @@
         <a class="nav-link" [routerLink]="['/patients', id, 'family']" routerLinkActive="active"
            [routerLinkActiveOptions]="{ exact: true }">Family History</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/patients', id, 'present-illness']" routerLinkActive="active"
-           [routerLinkActiveOptions]="{ exact: true }">History Of Present Illness"</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/patients', id, 'cardiac']" routerLinkActive="active"
-           [routerLinkActiveOptions]="{ exact: true }">Cardiac Risk Factor</a>
-    </li>
+    <!--<li class="nav-item">-->
+        <!--<a class="nav-link" [routerLink]="['/patients', id, 'present-illness']" routerLinkActive="active"-->
+           <!--[routerLinkActiveOptions]="{ exact: true }">History Of Present Illness</a>-->
+    <!--</li>-->
+    <!--<li class="nav-item">-->
+        <!--<a class="nav-link" [routerLink]="['/patients', id, 'cardiac']" routerLinkActive="active"-->
+           <!--[routerLinkActiveOptions]="{ exact: true }">Cardiac Risk Factor</a>-->
+    <!--</li>-->
 </ul>
 <router-outlet></router-outlet>

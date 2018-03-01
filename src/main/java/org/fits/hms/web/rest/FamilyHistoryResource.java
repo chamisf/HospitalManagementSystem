@@ -112,6 +112,20 @@ public class FamilyHistoryResource {
     }
 
     /**
+     * GET  /family-histories/by-patient/:id : get the familyHistory of given :id patient.
+     *
+     * @param id the id of the patient of familyHistory to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the familyHistory, or with status 404 (Not Found)
+     */
+    @GetMapping("/family-histories/by-patient/{id}")
+    @Timed
+    public ResponseEntity<FamilyHistory> getFirstFamilyHistoryByPatientId(@PathVariable Long id) {
+        log.debug("REST request to get Family History by Patient Id : {}", id);
+        FamilyHistory familyHistory = familyHistoryService.findFirstByPatientId(id);
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(familyHistory));
+    }
+
+    /**
      * DELETE  /family-histories/:id : delete the "id" familyHistory.
      *
      * @param id the id of the familyHistory to delete

@@ -1,0 +1,69 @@
+<div>
+    <div class="row" *ngIf="selectedAllergy">
+        <dl class="row-md jh-entity-details">
+            <dt><span>Allergy Type</span></dt>
+            <dd>
+                {{selectedAllergy.allergyType?.allergyType}}
+            </dd>
+            <dt><span>Additional Information</span></dt>
+            <dd>
+                <span>{{selectedAllergy.additionalInformation}}</span>
+            </dd>
+        </dl>
+    </div>
+    <hr>
+    <div class="table-responsive" *ngIf="allergies">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><span>Additional Information</span> <span class="fa"></span></th>
+                <th><span>Allergy Type</span> <span class="fa"></span></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let allergy of allergies ;trackBy: trackId">
+                <td>{{allergy.additionalInformation}}</td>
+                <td>
+                    <div *ngIf="allergy.allergyType">
+                        {{allergy.allergyType?.allergyType}}
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button (click)="viewSelectedAllergy(allergy)"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'allergy/'+ allergy.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'allergy/'+ allergy.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="allergies && allergies.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

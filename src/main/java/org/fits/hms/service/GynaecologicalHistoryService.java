@@ -46,5 +46,5 @@ public interface GynaecologicalHistoryService {
      * @param id patient id
      * @return gynaecologincal history of given patient
      */
-    GynaecologicalHistory findFristByPatientId(Long id);
+    GynaecologicalHistory findFirstByPatientId(Long id);
 }

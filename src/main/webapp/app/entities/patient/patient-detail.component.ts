@@ -8,7 +8,8 @@ import { PatientService } from './patient.service';
 
 @Component({
     selector: 'jhi-patient-detail',
-    templateUrl: './patient-detail.component.html'
+    templateUrl: './patient-detail.component.html',
+    styleUrls: ['patient-detail.scss']
 })
 export class PatientDetailComponent implements OnInit, OnDestroy {
 

@@ -74,4 +74,9 @@ public class FamilyHistoryServiceImpl implements FamilyHistoryService{
         log.debug("Request to delete FamilyHistory : {}", id);
         familyHistoryRepository.delete(id);
     }
+
+    @Override
+    public FamilyHistory findFirstByPatientId(Long id) {
+        return familyHistoryRepository.findFirstByPatientId(id);
+    }
 }

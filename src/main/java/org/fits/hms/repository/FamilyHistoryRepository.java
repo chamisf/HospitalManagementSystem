@@ -13,4 +13,11 @@ import org.springframework.data.jpa.repository.*;
 @Repository
 public interface FamilyHistoryRepository extends JpaRepository<FamilyHistory, Long> {
 
+    /**
+     * Find first match of Family history of patient matched to given id.
+     *
+     * @param id patient id
+     * @return Family history of given patient
+     */
+    FamilyHistory findFirstByPatientId(Long id);
 }

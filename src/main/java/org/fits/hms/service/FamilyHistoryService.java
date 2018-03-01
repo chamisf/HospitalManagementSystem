@@ -39,4 +39,12 @@ public interface FamilyHistoryService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+    /**
+     * Find first match of Family history of patient matched to given id.
+     *
+     * @param id patient id
+     * @return Family history of given patient
+     */
+    FamilyHistory findFirstByPatientId(Long id);
 }

@@ -7,9 +7,11 @@ import {PatientComponent} from "../../entities/patient/patient.component";
 import {PatientResolvePagingParams} from "../../entities/patient/patient.route";
 import {GynaecologicalHistoryDetailComponent} from "../../entities/gynaecological-history";
 import {DrugHistoryDetailComponent} from "../../entities/drug-history";
-import {AllergyDetailComponent} from "../../entities/allergy";
+import {AllergyComponent, AllergyDetailComponent} from "../../entities/allergy";
 import {FamilyHistoryDetailComponent} from "../../entities/family-history";
 import {PersonalSocialDetailsDetailComponent} from "../../entities/personal-social-details";
+import {AllergiesHistoryComponent} from "./allergies-history/allergies-history.component";
+import {AllergyResolvePagingParams} from "../../entities/allergy/allergy.route";
 
 const routes: Routes = [
     {
@@ -37,7 +39,7 @@ const routes: Routes = [
                 component: PersonalSocialDetailsDetailComponent
             },
             {
-                path: 'gynological',
+                path: 'gynaecological',
                 component: GynaecologicalHistoryDetailComponent
             },
             {
@@ -46,7 +48,10 @@ const routes: Routes = [
             },
             {
                 path: 'allergies',
-                component: AllergyDetailComponent
+                resolve: {
+                    'pagingParams': AllergyResolvePagingParams
+                },
+                component: AllergiesHistoryComponent
             },
             {
                 path: 'family',

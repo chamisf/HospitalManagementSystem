@@ -1,58 +1,82 @@
 
 <div *ngIf="personalSocialDetails">
-    <h2><span>Personal Social Details</span> {{personalSocialDetails.id}}</h2>
-    <hr>
     <jhi-alert-error></jhi-alert-error>
-    <dl class="row-md jh-entity-details">
-        <dt><span>Education</span></dt>
-        <dd>
-            <span>{{personalSocialDetails.education}}</span>
-        </dd>
-        <dt><span>Employment</span></dt>
-        <dd>
-            <span>{{personalSocialDetails.employment}}</span>
-        </dd>
-        <dt><span>Assistance At Home</span></dt>
-        <dd>
-            <span>{{personalSocialDetails.assistanceAtHome}}</span>
-        </dd>
-        <dt><span>Patient</span></dt>
-        <dd>
-            <div *ngIf="personalSocialDetails.patient">
-                <a [routerLink]="['/patient', personalSocialDetails.patient?.id]">{{personalSocialDetails.patient?.id}}</a>
+    <div>
+        <div class="row">
+            <div class="col-md-2 detail-header">
+                Sleep Type
             </div>
-        </dd>
-        <dt><span>Sleep Type</span></dt>
-        <dd>
-            <div *ngIf="personalSocialDetails.sleepType">
-                <a [routerLink]="['/sleep-types', personalSocialDetails.sleepType?.id]">{{personalSocialDetails.sleepType?.id}}</a>
+            <div class="col-md-4 detail-item">
+                <div *ngIf="personalSocialDetails.sleepType">
+                    {{personalSocialDetails.sleepType?.sleepType}}
+                </div>
             </div>
-        </dd>
-        <dt><span>Appetite Type</span></dt>
-        <dd>
-            <div *ngIf="personalSocialDetails.appetiteType">
-                <a [routerLink]="['/appetite-types', personalSocialDetails.appetiteType?.id]">{{personalSocialDetails.appetiteType?.id}}</a>
+        </div>
+        <div class="row">
+            <div class="col-md-2 detail-header">
+                Appetite Type
             </div>
-        </dd>
-        <dt><span>Micturition Type</span></dt>
-        <dd>
-            <div *ngIf="personalSocialDetails.micturitionType">
-                <a [routerLink]="['/micturition-types', personalSocialDetails.micturitionType?.id]">{{personalSocialDetails.micturitionType?.id}}</a>
+            <div class="col-md-4 detail-item">
+                <div *ngIf="personalSocialDetails.appetiteType">
+                   {{personalSocialDetails.appetiteType?.appetiteType}}
+                </div>
             </div>
-        </dd>
-        <dt><span>Bowel Habit</span></dt>
-        <dd>
-            <div *ngIf="personalSocialDetails.bowelHabit">
-                <a [routerLink]="['/bowel-habits', personalSocialDetails.bowelHabit?.id]">{{personalSocialDetails.bowelHabit?.id}}</a>
+        </div>
+        <div class="row">
+            <div class="col-md-2 detail-header">
+                Micturition Type
             </div>
-        </dd>
-        <dt><span>Addiction</span></dt>
-        <dd>
-            <div *ngIf="personalSocialDetails.addiction">
-                <a [routerLink]="['/addictions', personalSocialDetails.addiction?.id]">{{personalSocialDetails.addiction?.id}}</a>
+            <div class="col-md-4 detail-item">
+                <div *ngIf="personalSocialDetails.micturitionType">
+                    {{personalSocialDetails.micturitionType?.micturitionType}}
+                </div>
             </div>
-        </dd>
-    </dl>
+        </div>
+        <div class="row">
+            <div class="col-md-2 detail-header">
+                Bowel Habit
+            </div>
+            <div class="col-md-4 detail-item">
+                <div *ngIf="personalSocialDetails.bowelHabit">
+                    {{personalSocialDetails.bowelHabit?.bowelHabit}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 detail-header">
+                Addiction
+            </div>
+            <div class="col-md-4 detail-item">
+                <div *ngIf="personalSocialDetails.addiction">
+                    {{personalSocialDetails.addiction?.addiction}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 detail-header">
+                Education
+            </div>
+            <div class="col-md-4 detail-item">
+                {{personalSocialDetails.education}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 detail-header">
+                Employment
+            </div>
+            <div class="col-md-4 detail-item">
+                {{personalSocialDetails.employment}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 detail-header">
+                Assistance At Home
+            </div>
+            <div class="col-md-4 detail-item">
+                {{personalSocialDetails.assistanceAtHome}}
+            </div>
+        </div>
+    </div>
 
     <button type="submit"
             (click)="previousState()"

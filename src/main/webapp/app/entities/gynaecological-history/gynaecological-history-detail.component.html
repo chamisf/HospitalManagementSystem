@@ -1,7 +1,5 @@
 
 <div *ngIf="gynaecologicalHistory">
-    <h2><span>Gynaecological History</span> {{gynaecologicalHistory.id}}</h2>
-    <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
         <dt><span>Age Of Menarche</span></dt>
@@ -15,12 +13,6 @@
         <dt><span>Regularity Of Cycle</span></dt>
         <dd>
             <span>{{gynaecologicalHistory.regularityOfCycle}}</span>
-        </dd>
-        <dt><span>Patient</span></dt>
-        <dd>
-            <div *ngIf="gynaecologicalHistory.patient">
-                <a [routerLink]="['/patient', gynaecologicalHistory.patient?.id]">{{gynaecologicalHistory.patient?.id}}</a>
-            </div>
         </dd>
     </dl>
 
