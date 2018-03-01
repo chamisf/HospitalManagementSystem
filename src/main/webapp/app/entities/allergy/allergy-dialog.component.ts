@@ -51,19 +51,8 @@ export class AllergyDialogComponent implements OnInit {
                         }, (subRes: ResponseWrapper) => this.onError(subRes.json));
                 }
             }, (res: ResponseWrapper) => this.onError(res.json));
-        this.patientService
-            .query({filter: 'allergy-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.allergy.patient || !this.allergy.patient.id) {
-                    this.patients = res.json;
-                } else {
-                    this.patientService
-                        .find(this.allergy.patient.id)
-                        .subscribe((subRes: Patient) => {
-                            this.patients = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
+        this.patientService.query()
+            .subscribe((res: ResponseWrapper) => { this.patients = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {

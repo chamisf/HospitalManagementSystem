@@ -27,9 +27,8 @@ public class Allergy implements Serializable {
     @JoinColumn(unique = true)
     private AllergyType allergyType;
 
-    @OneToOne(optional = false)
+    @ManyToOne(optional = false)
     @NotNull
-    @JoinColumn(unique = true)
     private Patient patient;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
