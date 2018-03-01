@@ -24,7 +24,7 @@ public class Allergy implements Serializable {
     private String additionalInformation;
 
     @OneToOne
-    @JoinColumn(unique = true)
+    @JoinColumn()
     private AllergyType allergyType;
 
     @ManyToOne(optional = false)

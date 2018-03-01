@@ -274,7 +274,7 @@ public class GynaecologicalHistoryResourceIntTest {
         gynaecologicalHistoryService.save(gynaecologicalHistory);
         em.flush();
 
-        GynaecologicalHistory result = gynaecologicalHistoryService.findFristByPatientId(patientId);
+        GynaecologicalHistory result = gynaecologicalHistoryService.findFirstByPatientId(patientId);
 
         assertThat(result.getId()).isEqualTo(gynaecologicalHistory.getId());
     }

@@ -35,23 +35,23 @@ public class PersonalSocialDetails implements Serializable {
     private Patient patient;
 
     @OneToOne
-    @JoinColumn(unique = true)
+    @JoinColumn()
     private SleepTypes sleepType;
 
     @OneToOne
-    @JoinColumn(unique = true)
+    @JoinColumn()
     private AppetiteTypes appetiteType;
 
     @OneToOne
-    @JoinColumn(unique = true)
+    @JoinColumn()
     private MicturitionTypes micturitionType;
 
     @OneToOne
-    @JoinColumn(unique = true)
+    @JoinColumn()
     private BowelHabits bowelHabit;
 
     @OneToOne
-    @JoinColumn(unique = true)
+    @JoinColumn()
     private Addictions addiction;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
