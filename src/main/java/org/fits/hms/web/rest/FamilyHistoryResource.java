@@ -122,7 +122,10 @@ public class FamilyHistoryResource {
     public ResponseEntity<FamilyHistory> getFirstFamilyHistoryByPatientId(@PathVariable Long id) {
         log.debug("REST request to get Family History by Patient Id : {}", id);
         FamilyHistory familyHistory = familyHistoryService.findFirstByPatientId(id);
-        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(familyHistory));
+        if (familyHistory == null) {
+            familyHistory = new FamilyHistory();
+        }
+        return ResponseEntity.ok(familyHistory);
     }
 
     /**

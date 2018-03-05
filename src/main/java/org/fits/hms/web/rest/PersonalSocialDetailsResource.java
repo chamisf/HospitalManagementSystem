@@ -122,7 +122,10 @@ public class PersonalSocialDetailsResource {
     public ResponseEntity<PersonalSocialDetails> getPersonalSocialDetailsByPatientId(@PathVariable Long id) {
         log.debug("REST request to get PersonalSocialDetails by Patient Id : {}", id);
         PersonalSocialDetails personalSocialDetails = personalSocialDetailsService.findFirstByPatientId(id);
-        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(personalSocialDetails));
+        if (personalSocialDetails == null) {
+            personalSocialDetails = new PersonalSocialDetails();
+        }
+        return ResponseEntity.ok(personalSocialDetails);
     }
 
     /**

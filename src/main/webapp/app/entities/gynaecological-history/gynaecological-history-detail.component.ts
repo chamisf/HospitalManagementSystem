@@ -1,5 +1,5 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Rx';
 import {JhiEventManager} from 'ng-jhipster';
 
@@ -15,15 +15,18 @@ export class GynaecologicalHistoryDetailComponent implements OnInit, OnDestroy {
     gynaecologicalHistory: GynaecologicalHistory;
     private subscription: Subscription;
     private eventSubscriber: Subscription;
+    private patientId: number;
 
     constructor(private eventManager: JhiEventManager,
                 private gynaecologicalHistoryService: GynaecologicalHistoryService,
-                private route: ActivatedRoute) {
+                private route: ActivatedRoute,
+                private router: Router) {
     }
 
     ngOnInit() {
         this.subscription = this.route.parent.params.subscribe((params) => {
-            this.loadByPatientId(params['id']);
+            this.patientId = params['id'];
+            this.loadByPatientId(this.patientId);
         });
         this.registerChangeInGynaecologicalHistories();
     }
@@ -53,7 +56,31 @@ export class GynaecologicalHistoryDetailComponent implements OnInit, OnDestroy {
     registerChangeInGynaecologicalHistories() {
         this.eventSubscriber = this.eventManager.subscribe(
             'gynaecologicalHistoryListModification',
-            (response) => this.load(this.gynaecologicalHistory.id)
+            (response) => {
+                if (this.gynaecologicalHistory.id) {
+                    this.load(this.gynaecologicalHistory.id)
+                } else {
+                    this.loadByPatientId(this.patientId);
+                }
+            }
         );
+    }
+
+    navigateTo() {
+        let popUpRoute: string;
+        if (this.gynaecologicalHistory.id) {
+            popUpRoute = 'gynaecological-history/' + this.gynaecologicalHistory.id + '/edit';
+
+        }
+        else {
+            popUpRoute = 'gynaecological-history-new';
+        }
+
+        let navigationExtras: any = {
+            outlets: {
+                popup: popUpRoute
+            }
+        };
+        this.router.navigate([navigationExtras]);
     }
 }

@@ -85,10 +85,10 @@
     </button>
 
     <button type="button"
-            [routerLink]="['/', { outlets: { popup: 'personal-social-details/'+ personalSocialDetails.id + '/edit'} }]"
             replaceUrl="true"
             queryParamsHandling="merge"
-            class="btn btn-primary">
+            class="btn btn-primary"
+            (click)="navigateTo()">
         <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
     </button>
 </div>

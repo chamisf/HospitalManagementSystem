@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Rx';
 import {JhiEventManager} from 'ng-jhipster';
 
@@ -15,15 +15,18 @@ export class PersonalSocialDetailsDetailComponent implements OnInit, OnDestroy {
     personalSocialDetails: PersonalSocialDetails;
     private subscription: Subscription;
     private eventSubscriber: Subscription;
+    private patientId: number;
 
     constructor(private eventManager: JhiEventManager,
                 private personalSocialDetailsService: PersonalSocialDetailsService,
-                private route: ActivatedRoute) {
+                private route: ActivatedRoute,
+                private router: Router) {
     }
 
     ngOnInit() {
         this.subscription = this.route.parent.params.subscribe((params) => {
-            this.loadByPatientId(params['id']);
+            this.patientId = +params['id'];
+            this.loadByPatientId(this.patientId);
         });
         this.registerChangeInPersonalSocialDetails();
     }
@@ -52,7 +55,30 @@ export class PersonalSocialDetailsDetailComponent implements OnInit, OnDestroy {
     registerChangeInPersonalSocialDetails() {
         this.eventSubscriber = this.eventManager.subscribe(
             'personalSocialDetailsListModification',
-            (response) => this.load(this.personalSocialDetails.id)
+            (response) => {
+                if (this.personalSocialDetails.id) {
+                    this.load(this.personalSocialDetails.id)
+                } else {
+                    this.loadByPatientId(this.patientId);
+                }
+            }
         );
+    }
+
+    navigateTo() {
+        let popUpRoute: string;
+        if (this.personalSocialDetails.id) {
+            popUpRoute = 'personal-social-details/' + this.personalSocialDetails.id + '/edit';
+        }
+        else {
+            popUpRoute = 'personal-social-details-new';
+        }
+
+        let navigationExtras: any = {
+            outlets: {
+                popup: popUpRoute
+            }
+        };
+        this.router.navigate([navigationExtras]);
     }
 }

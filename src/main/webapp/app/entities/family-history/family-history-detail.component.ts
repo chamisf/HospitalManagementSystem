@@ -1,5 +1,5 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, NavigationExtras, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Rx';
 import {JhiEventManager} from 'ng-jhipster';
 
@@ -15,15 +15,18 @@ export class FamilyHistoryDetailComponent implements OnInit, OnDestroy {
     familyHistory: FamilyHistory;
     private subscription: Subscription;
     private eventSubscriber: Subscription;
+    private patientId: number;
 
     constructor(private eventManager: JhiEventManager,
                 private familyHistoryService: FamilyHistoryService,
-                private route: ActivatedRoute) {
+                private route: ActivatedRoute,
+                private router: Router) {
     }
 
     ngOnInit() {
         this.subscription = this.route.parent.params.subscribe((params) => {
-            this.loadByPatientId(params['id']);
+            this.patientId = +params['id'];
+            this.loadByPatientId(this.patientId);
         });
         this.registerChangeInFamilyHistories();
     }
@@ -52,7 +55,30 @@ export class FamilyHistoryDetailComponent implements OnInit, OnDestroy {
     registerChangeInFamilyHistories() {
         this.eventSubscriber = this.eventManager.subscribe(
             'familyHistoryListModification',
-            (response) => this.load(this.familyHistory.id)
+            (response) => {
+                if (this.familyHistory.id) {
+                    this.load(this.familyHistory.id)
+                } else {
+                    this.loadByPatientId(this.patientId);
+                }
+            }
         );
+    }
+
+    navigateTo() {
+        let popUpRoute: string;
+        if (this.familyHistory.id) {
+            popUpRoute = 'family-history/' + this.familyHistory.id + '/edit';
+        }
+        else {
+            popUpRoute = 'family-history-new';
+        }
+
+        let navigationExtras: any = {
+            outlets: {
+                popup: popUpRoute
+            }
+        };
+        this.router.navigate([navigationExtras]);
     }
 }

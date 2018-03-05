@@ -122,7 +122,10 @@ public class GynaecologicalHistoryResource {
     public ResponseEntity<GynaecologicalHistory> getFirstGynaecologicalHistoryByPatientId(@PathVariable Long id) {
         log.debug("REST request to get GynaecologicalHistory by Patient Id : {}", id);
         GynaecologicalHistory gynaecologicalHistory = gynaecologicalHistoryService.findFirstByPatientId(id);
-        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(gynaecologicalHistory));
+        if (gynaecologicalHistory == null) {
+            gynaecologicalHistory = new GynaecologicalHistory();
+        }
+        return ResponseEntity.ok(gynaecologicalHistory);
     }
 
     /**
