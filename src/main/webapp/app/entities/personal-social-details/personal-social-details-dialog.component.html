@@ -45,35 +45,35 @@
             <label class="form-control-label" for="field_sleepType">Sleep Type</label>
             <select class="form-control" id="field_sleepType" name="sleepType" [(ngModel)]="personalSocialDetails.sleepType">
                 <option [ngValue]="null"></option>
-                <option [ngValue]="sleepTypesOption.id === personalSocialDetails.sleepType?.id ? personalSocialDetails.sleepType : sleepTypesOption" *ngFor="let sleepTypesOption of sleeptypes; trackBy: trackSleepTypesById">{{sleepTypesOption.id}}</option>
+                <option [ngValue]="sleepTypesOption.id === personalSocialDetails.sleepType?.id ? personalSocialDetails.sleepType : sleepTypesOption" *ngFor="let sleepTypesOption of sleeptypes; trackBy: trackSleepTypesById">{{sleepTypesOption.sleepType}}</option>
             </select>
         </div>
         <div class="form-group">
             <label class="form-control-label" for="field_appetiteType">Appetite Type</label>
             <select class="form-control" id="field_appetiteType" name="appetiteType" [(ngModel)]="personalSocialDetails.appetiteType">
                 <option [ngValue]="null"></option>
-                <option [ngValue]="appetiteTypesOption.id === personalSocialDetails.appetiteType?.id ? personalSocialDetails.appetiteType : appetiteTypesOption" *ngFor="let appetiteTypesOption of appetitetypes; trackBy: trackAppetiteTypesById">{{appetiteTypesOption.id}}</option>
+                <option [ngValue]="appetiteTypesOption.id === personalSocialDetails.appetiteType?.id ? personalSocialDetails.appetiteType : appetiteTypesOption" *ngFor="let appetiteTypesOption of appetitetypes; trackBy: trackAppetiteTypesById">{{appetiteTypesOption.appetiteType}}</option>
             </select>
         </div>
         <div class="form-group">
             <label class="form-control-label" for="field_micturitionType">Micturition Type</label>
             <select class="form-control" id="field_micturitionType" name="micturitionType" [(ngModel)]="personalSocialDetails.micturitionType">
                 <option [ngValue]="null"></option>
-                <option [ngValue]="micturitionTypesOption.id === personalSocialDetails.micturitionType?.id ? personalSocialDetails.micturitionType : micturitionTypesOption" *ngFor="let micturitionTypesOption of micturitiontypes; trackBy: trackMicturitionTypesById">{{micturitionTypesOption.id}}</option>
+                <option [ngValue]="micturitionTypesOption.id === personalSocialDetails.micturitionType?.id ? personalSocialDetails.micturitionType : micturitionTypesOption" *ngFor="let micturitionTypesOption of micturitiontypes; trackBy: trackMicturitionTypesById">{{micturitionTypesOption.micturitionType}}</option>
             </select>
         </div>
         <div class="form-group">
             <label class="form-control-label" for="field_bowelHabit">Bowel Habit</label>
             <select class="form-control" id="field_bowelHabit" name="bowelHabit" [(ngModel)]="personalSocialDetails.bowelHabit">
                 <option [ngValue]="null"></option>
-                <option [ngValue]="bowelHabitsOption.id === personalSocialDetails.bowelHabit?.id ? personalSocialDetails.bowelHabit : bowelHabitsOption" *ngFor="let bowelHabitsOption of bowelhabits; trackBy: trackBowelHabitsById">{{bowelHabitsOption.id}}</option>
+                <option [ngValue]="bowelHabitsOption.id === personalSocialDetails.bowelHabit?.id ? personalSocialDetails.bowelHabit : bowelHabitsOption" *ngFor="let bowelHabitsOption of bowelhabits; trackBy: trackBowelHabitsById">{{bowelHabitsOption.bowelHabit}}</option>
             </select>
         </div>
         <div class="form-group">
             <label class="form-control-label" for="field_addiction">Addiction</label>
             <select class="form-control" id="field_addiction" name="addiction" [(ngModel)]="personalSocialDetails.addiction">
                 <option [ngValue]="null"></option>
-                <option [ngValue]="addictionsOption.id === personalSocialDetails.addiction?.id ? personalSocialDetails.addiction : addictionsOption" *ngFor="let addictionsOption of addictions; trackBy: trackAddictionsById">{{addictionsOption.id}}</option>
+                <option [ngValue]="addictionsOption.id === personalSocialDetails.addiction?.id ? personalSocialDetails.addiction : addictionsOption" *ngFor="let addictionsOption of addictions; trackBy: trackAddictionsById">{{addictionsOption.addiction}}</option>
             </select>
         </div>
     </div>
