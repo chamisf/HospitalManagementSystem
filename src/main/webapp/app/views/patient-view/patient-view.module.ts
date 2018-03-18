@@ -9,7 +9,7 @@ import {PatientHeaderComponent} from './patient-header/patient-header.component'
 import {AllergiesHistoryComponent} from "./allergies-history/allergies-history.component";
 import {HospitalManagementSystemSharedModule} from "../../shared";
 import {AllergyTypeResolvePagingParams} from "../../entities/allergy-type";
-
+import {DrugHistoryComponent} from "./drug-history/drug-history.component";
 @NgModule({
     imports: [
         CommonModule,
@@ -19,7 +19,7 @@ import {AllergyTypeResolvePagingParams} from "../../entities/allergy-type";
         HospitalManagementSystemSharedModule
     ],
     declarations: [
-        PatientViewComponent, PatientHeaderComponent, AllergiesHistoryComponent
+        PatientViewComponent, PatientHeaderComponent, AllergiesHistoryComponent,DrugHistoryComponent
     ],
     providers: [
         AllergyTypeResolvePagingParams
